@@ -1,11 +1,13 @@
-package com.personal.sysdes.connectionpool;
+package com.personal.sysdes.week1.connectionpool;
 
-import com.personal.sysdes.blockingqueue.BlockingQueue;
+import com.personal.sysdes.week1.blockingqueue.BlockingQueue;
 import com.personal.sysdes.utils.Utils;
 import com.personal.sysdes.utils.WaitGroup;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.lang.Thread.sleep;
 
 public class ConnectionPoolFair {
 
@@ -68,7 +70,7 @@ public class ConnectionPoolFair {
 
     private Object createConnectionObj(String ip, String username, String passwd) throws Exception {
         // mimic connection open.
-        Thread.sleep(Utils.getRandomInt(1, 5) * 1000L);
+        sleep(Utils.getRandomInt(1, 5) * 1000L);
         return new Object();
     }
 
@@ -113,7 +115,7 @@ public class ConnectionPoolFair {
                 }).start();
             }
             else {
-                Thread.sleep(60);
+                sleep(60);
             }
         }
     }
@@ -125,7 +127,7 @@ public class ConnectionPoolFair {
         this.addQuery(rs);
         
         while(!rs.getStatus()) {
-            Thread.sleep(200);
+            sleep(200);
         }
         return rs;
     }
@@ -134,7 +136,7 @@ public class ConnectionPoolFair {
     private Object performQuery(String query) throws Exception {
         // mimic query execution
         Object queryRes = new Object();
-        Thread.sleep(Utils.getRandomInt(1, 5) * 1000, 0);        
+        sleep(Utils.getRandomInt(1, 5) * 1000L, 0);
         return queryRes;
     }
 
@@ -177,7 +179,7 @@ public class ConnectionPoolFair {
                 }
             }).start();
             wg.add(1);
-            Thread.sleep(20);
+            sleep(20);
         }
         wg.await();
     }

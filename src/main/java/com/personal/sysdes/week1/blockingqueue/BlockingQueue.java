@@ -1,4 +1,4 @@
-package com.personal.sysdes.blockingqueue;
+package com.personal.sysdes.week1.blockingqueue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,13 +35,18 @@ public class BlockingQueue {
         // int tries = 5;
 
         while (true) {
-            if (queue.size() > 0) {
-                Object ele = queue.remove(0);
-                return ele;
+            if (!queue.isEmpty()) {
+                return queue.remove(0);
             } else {
+                // Make this thread wait
                 wait(1000);
             }
         }
+    }
+
+    // To access a particular element.
+    synchronized public Object takeIndex(int k) {
+        return this.queue.get(k);
     }
 
     synchronized public int getCurrentSize() {

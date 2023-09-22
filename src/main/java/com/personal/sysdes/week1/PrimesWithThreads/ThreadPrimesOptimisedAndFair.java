@@ -1,8 +1,8 @@
-package com.personal.sysdes.threads;
-
-import java.util.concurrent.atomic.AtomicInteger;
+package com.personal.sysdes.week1.PrimesWithThreads;
 
 import com.personal.sysdes.utils.WaitGroup;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ThreadPrimesOptimisedAndFair {
     public AtomicInteger result = new AtomicInteger(1);
@@ -21,7 +21,7 @@ public class ThreadPrimesOptimisedAndFair {
     }
     
     public void countPrimes(int startVal, int mxVal) {
-        System.out.printf("Checking for batch: %s to %s%n", startVal, mxVal);
+//        System.out.printf("Checking for batch: %s to %s%n", startVal, mxVal);
         for (int i = startVal; i < mxVal; i++) {
             if (isPrime(i)) {
                 result.addAndGet(1);
@@ -43,7 +43,7 @@ public class ThreadPrimesOptimisedAndFair {
         }
 
         public void run() {
-            System.out.printf("Started thread %s\n", this.threadNum);
+//            System.out.printf("Started thread %s\n", this.threadNum);
             long startTime = System.currentTimeMillis();
             long waitTimeMillis = 0;
             long waitTimeMillisStart = 0;
@@ -72,8 +72,8 @@ public class ThreadPrimesOptimisedAndFair {
             }
                     
             long currentTime = System.currentTimeMillis();
-            System.out.printf("Total time taken by thread %s for nums %s: %s seconds with total wait time: %s \n", 
-                    this.threadNum, processedNums, ((currentTime - startTime) / 1000), waitTimeMillis);
+//            System.out.printf("Total time taken by thread %s for nums %s: %s seconds with total wait time: %s \n",
+//                    this.threadNum, processedNums, ((currentTime - startTime) / 1000), waitTimeMillis);
             // System.out.printf("Completed checking primes for %s to %s \n ", this.startVal, this.mxVal);
             try {
                 wg.done();
@@ -84,8 +84,8 @@ public class ThreadPrimesOptimisedAndFair {
     }
 
     public static void main(String[] args) throws Exception {
-        int mxVAL = 1000000000;
-        int numThreads = 1000;
+        int mxVAL = 1000000;
+        int numThreads = 10;
         
         ThreadPrimesOptimisedAndFair tp1 = new ThreadPrimesOptimisedAndFair();
 
@@ -98,6 +98,6 @@ public class ThreadPrimesOptimisedAndFair {
         }
 
         wg.await();
-        System.out.println("Total Primes: " + tp1.result);
+//        System.out.println("Total Primes: " + tp1.result);
     }
 }

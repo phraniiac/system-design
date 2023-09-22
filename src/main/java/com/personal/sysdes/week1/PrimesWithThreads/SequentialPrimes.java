@@ -1,4 +1,4 @@
-package com.personal.sysdes.threads;
+package com.personal.sysdes.week1.PrimesWithThreads;
 
 public class SequentialPrimes {
     public int result = 1;

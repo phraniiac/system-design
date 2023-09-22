@@ -1,9 +1,6 @@
-package com.personal.sysdes.connectionpool;
+package com.personal.sysdes.week1.connectionpool;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.personal.sysdes.blockingqueue.BlockingQueue;
+import com.personal.sysdes.week1.blockingqueue.BlockingQueue;
 import com.personal.sysdes.utils.Utils;
 import com.personal.sysdes.utils.WaitGroup;
 

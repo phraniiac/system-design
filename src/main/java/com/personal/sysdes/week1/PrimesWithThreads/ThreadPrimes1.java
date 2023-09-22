@@ -1,4 +1,4 @@
-package com.personal.sysdes.threads;
+package com.personal.sysdes.week1.PrimesWithThreads;
 
 import com.personal.sysdes.utils.WaitGroup;
 

@@ -1,5 +1,8 @@
 package com.personal.sysdes.utils;
 
+/**
+ * This is a simple utility class inspired from golang's WaitGroup.
+ */
 public class WaitGroup {
 
     private int counter;
